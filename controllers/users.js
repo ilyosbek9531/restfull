@@ -7,8 +7,8 @@ module.exports = {
   },
   newUser: async (req, res, next) => {
     const newUser = new User(req.body);
-    await newUser.save();
-    res.status(201).json(newUser);
+    const user = await newUser.save();
+    res.status(201).json(user);
   },
 };
 
