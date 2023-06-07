@@ -22,4 +22,10 @@ module.exports = {
 
     res.status(201).json(car);
   },
+
+  getCar: async (req, res, next) => {
+    const { carId } = req.params;
+    const car = await Car.findById(carId);
+    res.status(200).json(car);
+  },
 };
