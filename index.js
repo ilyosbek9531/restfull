@@ -1,10 +1,21 @@
+require("dotenv").config();
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/restfullData");
+mongoose.set("strictQuery", false);
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URL);
+    console.log("mongoDB connected: " + conn.connection.host);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
 
 const app = express();
 
@@ -41,4 +52,6 @@ app.use((err, req, res, next) => {
 
 // start the server
 const port = app.get("port") || 4000;
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
+connectDB().then(() => {
+  app.listen(port, () => console.log(`Server is listening on port ${port}`));
+});
