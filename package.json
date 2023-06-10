@@ -2,9 +2,12 @@
   "name": "restfull",
   "version": "1.0.0",
   "main": "app.js",
+  "engines": {
+    "node": "14.x"
+  },
   "license": "MIT",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
