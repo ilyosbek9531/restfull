@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon index.js",
-    "build": "npm build"
+    "build": "npm run build"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
