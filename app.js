@@ -9,7 +9,7 @@ mongoose.set("strictQuery", false);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
+    await mongoose.connect("mongodb://localhost/restfullData", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
