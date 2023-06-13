@@ -14,7 +14,7 @@ const connectDB = async () => {
       useUnifiedTopology: true,
     });
   } catch (error) {
-    process.exit(1);
+    console.log("error", error);
   }
 };
 
